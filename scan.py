@@ -45,6 +45,7 @@ def read_blacklist():
 if __name__ == "__main__":
     directory = os.getcwd()
     print(sys.argv)
+    print(len(sys.argv))
     if len(sys.argv) == 2:
         directory = sys.argv[1]
 
