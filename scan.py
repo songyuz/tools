@@ -3,7 +3,6 @@ import sys
 import re
 import magic
 
-# blacklist = ["keyword1", "keyword2", "keyword3"]
 
 exclude_folders = ['.git']
 
@@ -23,7 +22,6 @@ def scan_file(file_path, blacklist):
 
 def scan_directory(directory, blacklist):
     for root, dirs, files in os.walk(directory):
-        print(files)
         for exclude in exclude_folders:
             if exclude in dirs:
                 dirs.remove(exclude)
@@ -45,11 +43,8 @@ def read_blacklist():
 
 if __name__ == "__main__":
     directory = os.getcwd()
-    print(sys.argv)
-    print('len(sys.argv)', len(sys.argv))
     if len(sys.argv) == 2:
         directory = sys.argv[1]
-    print('directory', directory)
 
     blacklist = read_blacklist()
     scan_directory(directory, blacklist)
